@@ -1,0 +1,108 @@
+syntax="proto3";
+
+package task;
+
+service TaskService {
+    rpc NewTask(NewTaskRequest) returns (Task);
+    rpc GetTask(GetTaskRequest) returns (Task);
+    rpc ListTask(ListTaskRequest) returns (ListTasks);
+    rpc UpdateTask(UpdateTaskRequest) returns (Task);
+    rpc DeleteTask(DeleteTaskRequest) returns (Success);
+    rpc GetAssigneeTasks(AssigneeIdRequest) returns (AssigneeTasks);
+    rpc ListOverdue(ListOverdueRequest) returns (ListOverdueResp);
+}
+
+
+message NewTaskRequest {
+    string assignee_id =1;
+    string deadline =2;
+    string status =3;
+    string title =4;
+    string description =5;
+}
+
+message ListOverdueResp {
+    repeated Task tasks =1;
+}
+
+
+message UpdateTaskRequest {
+    string id = 1;
+    string assignee_id =2;
+    string deadline =3;
+    string status =4;
+    string title =5;
+    string description =6;
+}
+
+message Task {
+    string id =1;
+    string assignee_id =2;
+    string deadline =3;
+    string status =4;
+    string title =5;
+    string description =6;
+    string created_at =7;
+    string updated_at =8;
+    string deleted_at =9;
+    UserTask user =10;
+}
+
+message Phone {
+    string type = 1;
+    string number = 2;
+}
+
+
+message UserTask {
+    string id = 1;
+    string firstName = 2;
+    string lastName =3;
+    string bio = 4;
+    string profilePhoto =5;
+    string email =6;
+    string gender = 7;
+    repeated string address =8;
+    repeated Phone phones =9;
+    string created_at = 10;
+    string updated_at =11;
+    string deleted_at =12;
+    string username =13;
+}
+
+message ListOverdueRequest {
+}
+
+
+message GetTaskRequest {
+    string id =1;
+}
+
+message ListTaskRequest {
+    int64 page =1;
+    int64 limit =2;
+}
+
+message ListTasks {
+    repeated Task tasks =1;
+    int64 total =2;
+    int64 page =3;
+    int64 limit =4;
+}
+
+message DeleteTaskRequest {
+    string id =1;
+}
+
+message Success {
+    string message =1;
+}
+
+message AssigneeIdRequest {
+    string id =1;
+}
+
+message AssigneeTasks {
+    string assigneeId = 1;
+    repeated Task tasks = 2;
+}

@@ -1,0 +1,117 @@
+syntax="proto3";
+
+package user;
+
+service UserService {
+    rpc NewUser(NewUserRequest) returns (User);
+    rpc GetUser(GetUserRequest) returns (User);
+    rpc ListUser(ListUserRequest) returns (ListUsers);
+    rpc UpdateUser(UpdateUserRequest) returns (User);
+    rpc DeleteUser(DeleteUserRequest) returns (Success);
+    rpc GetUserForTask(GetUserForTaskRequest) returns (UserTask);
+}
+
+message UserTask {
+    string id = 1;
+    string firstName = 2;
+    string lastName =3;
+    string bio = 4;
+    string profilePhoto =5;
+    string email =6;
+    string gender = 7;
+    repeated string address =8;
+    repeated Phone phones =9;
+    string created_at = 10;
+    string updated_at =11;
+    string deleted_at =12;
+    string username =13;
+}
+
+message GetUserForTaskRequest {
+    string id =1;
+}
+
+message User {
+    string id = 1;
+    string firstName = 2;
+    string lastName =3;
+    string bio = 4;
+    string profilePhoto =5;
+    string email =6;
+    string gender = 7;
+    repeated string address =8;
+    repeated Phone phones =9;
+    string created_at = 10;
+    string updated_at =11;
+    string deleted_at =12;
+    string username =13;
+    repeated Task tasks =14;
+}
+
+message Task {
+    string id =1;
+    string assignee_id =2;
+    string deadline =3;
+    string status =4;
+    string title =5;
+    string description =6;
+    string created_at =7;
+    string updated_at =8;
+    string deleted_at =9;
+}
+
+message Phone {
+    string type = 1;
+    string number = 2;
+}
+
+message UserRequest {
+    string id = 1;
+}
+
+message NewUserRequest {
+    string firstName =1;
+    string lastName =2;
+    string bio =3;
+    string profilePhoto =4;
+    string email =5;
+    string gender =6;
+    repeated string address =7;
+    repeated Phone phones =8;
+    string username =9;
+}
+
+message UpdateUserRequest {
+    string id = 7;
+    string firstName =1;
+    string lastName =2;
+    string bio =3;
+    string email =4;
+    repeated string address =5;
+    repeated Phone phones =6;
+}
+
+message DeleteUserRequest {
+    string id =1;
+}
+
+message GetUserRequest {
+     string id =1;
+     string username = 2;
+}
+
+message ListUserRequest {
+     int64 page =1;
+     int64 limit =2;
+}
+
+message ListUsers {
+    repeated User users =1;
+    int64 total =2;
+    int64 page =3;
+    int64 limit =4;
+}
+
+message Success {
+    string message =1;
+}
