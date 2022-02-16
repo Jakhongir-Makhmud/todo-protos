@@ -12,6 +12,11 @@ service UserService {
   
     rpc CheckField(CheckFieldRequest) returns (FieldExists);
     rpc NewUserAuth(NewUserRequest) returns (User);
+    rpc GetUserByEmail(GetUserByEmailRequest) returns (User);
+}
+
+message GetUserByEmailRequest {
+    string email = 1;
 }
 
 message CheckFieldRequest {
