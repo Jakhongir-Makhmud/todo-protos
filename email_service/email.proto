@@ -6,6 +6,15 @@ package email;
 service EmailService {
     rpc Send(Email) returns (Mess);
     rpc SendOverdued(OverduedRequest) returns (Mess);
+    rpc SendSmS(Sms) returns (IsSmsSent);
+}
+
+message Sms {
+    string to =1;
+}
+
+message IsSmsSent {
+    bool isSend =1;
 }
 
 message OverduedRequest {
