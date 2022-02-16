@@ -9,6 +9,7 @@ service UserService {
     rpc UpdateUser(UpdateUserRequest) returns (User);
     rpc DeleteUser(DeleteUserRequest) returns (Success);
     rpc GetUserForTask(GetUserForTaskRequest) returns (UserTask);
+  
     rpc CheckField(CheckFieldRequest) returns (FieldExists);
     rpc NewUserAuth(NewUserRequest) returns (User);
 }
@@ -57,7 +58,7 @@ message User {
     string deleted_at =12;
     string username =13;
     string accessToken = 14;
-    string refreshToke =15;
+    string refreshToken =15;
     repeated Task tasks =16;
 }
 
