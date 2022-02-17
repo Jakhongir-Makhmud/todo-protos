@@ -14,6 +14,12 @@ service UserService {
     rpc NewUserAuth(NewUserRequest) returns (User);
     rpc GetUserByEmail(GetUserByEmailRequest) returns (User);
     rpc Login(LoginRequest) returns (User);
+    rpc RefreshToken(RefreshTokenRequest) returns (User);
+}
+
+message RefreshTokenRequest {
+    string refresh_token = 1;
+    string old_refresh_token = 2;
 }
 
 message LoginRequest {
