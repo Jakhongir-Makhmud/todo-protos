@@ -19,7 +19,8 @@ service UserService {
 
 message RefreshTokenRequest {
     string refresh_token = 1;
-    string old_refresh_token = 2;
+    string old_access_token = 2;
+    string new_access_token =3;
 }
 
 message LoginRequest {
