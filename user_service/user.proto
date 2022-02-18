@@ -78,6 +78,7 @@ message User {
     string accessToken = 14;
     string refreshToken =15;
     repeated Task tasks =16;
+    string password = 17;
 }
 
 message Task {
