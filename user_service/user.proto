@@ -21,6 +21,7 @@ message RefreshTokenRequest {
     string refresh_token = 1;
     string old_access_token = 2;
     string new_access_token =3;
+    string new_refresh_token =4;
 }
 
 message LoginRequest {
