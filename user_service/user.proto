@@ -115,6 +115,7 @@ message NewUserRequest {
     string access_token =10;
     string refresh_token = 11;
     string password = 12;
+    string id = 13;
 }
 
 message UpdateUserRequest {
