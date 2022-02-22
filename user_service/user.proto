@@ -15,6 +15,13 @@ service UserService {
     rpc GetUserByEmail(GetUserByEmailRequest) returns (User);
     rpc Login(LoginRequest) returns (User);
     rpc RefreshToken(RefreshTokenRequest) returns (User);
+    rpc ListUserFilter(ListUserFilterRequest) returns (ListUsers);
+}
+
+message ListUserFilterRequest {
+    int32 page = 1;
+    int32 limit = 2;
+    map<string,string> filters = 3;
 }
 
 message RefreshTokenRequest {
