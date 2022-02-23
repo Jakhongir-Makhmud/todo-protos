@@ -10,6 +10,13 @@ service TaskService {
     rpc DeleteTask(DeleteTaskRequest) returns (Success);
     rpc GetAssigneeTasks(AssigneeIdRequest) returns (AssigneeTasks);
     rpc ListOverdue(ListOverdueRequest) returns (ListOverdueResp);
+    rpc ListTasksFilter(ListTasksFilterRequest) returns (ListTasks);
+}
+
+message ListTasksFilterRequest {
+    int32 page =1;
+    int32 limit =2;
+    map<string,string> filters = 3;
 }
 
 
