@@ -53,6 +53,7 @@ message Task {
     string updated_at =8;
     string deleted_at =9;
     UserTask user =10;
+    repeated string types = 11;
 }
 
 message Phone {
@@ -75,6 +76,8 @@ message UserTask {
     string updated_at =11;
     string deleted_at =12;
     string username =13;
+    repeated string types = 14;
+
 }
 
 message ListOverdueRequest {
